@@ -8,7 +8,6 @@ import org.jetbrains.dokka.gradle.*
 plugins {
     base
     alias(libs.plugins.knit)
-    id("org.jetbrains.kotlinx.binary-compatibility-validator")
     id("org.jetbrains.dokka")
     id("benchmark-conventions")
 
@@ -61,7 +60,7 @@ allprojects {
 
 // == BCV setup ==
 apiValidation {
-    ignoredProjects.addAll(listOf("benchmark", "guide", "kotlinx-serialization"))
+    ignoredProjects.addAll(listOf("benchmark", "guide", "kotlinx-serialization", "kotlinx-serialization-json-tests"))
     @OptIn(ExperimentalBCVApi::class)
     klib {
         enabled = true
